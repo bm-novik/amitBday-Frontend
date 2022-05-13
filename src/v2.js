@@ -3,10 +3,12 @@ import {BdayCountdown} from "./hooks/BdayCountdown";
 import {Box, Container, Paper, Typography, useTheme} from "@mui/material";
 import {Text} from "./components/text/Text";
 import {Form} from "./components/Form";
+import {useState} from "react";
 
 
 export const VersionTwo = () => {
     const theme = useTheme();
+    const [confirm, setConfirm] = useState(false)
     return (
         <>
 
@@ -35,8 +37,7 @@ export const VersionTwo = () => {
                 <Box
                 sx={{position: 'relative',
                 top: '3.5ch',
-                // [theme.breakpoints.down("md")]: {top: '2.5ch'},
-                    [theme.breakpoints.down("sm")]: {top: '1ch'},
+                [theme.breakpoints.down("sm")]: {top: '1ch'},
                 }}
                 >
                     <Typography
@@ -100,7 +101,7 @@ export const VersionTwo = () => {
                             borderColor: 'white',
                             padding: '3ch',
                         }}>
-                        <Form/>
+                        {confirm ?  <Image src={`${'confirm.jpeg'}?w=293&h=293&fit=crop&auto=format`}/> : <Form setConfirm={setConfirm}/> }
                     </Box>
                 </Box>
             </Box>

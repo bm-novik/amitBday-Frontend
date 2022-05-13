@@ -35,10 +35,12 @@ const MyTextField = styled(TextField)({
 
 
 
-export const Form = () => {
-    const theme = useTheme();
+export const Form = ({setConfirm}) => {
+    const theme = useTheme()
+
     const onSuccess = () => {
         formik.resetForm()
+        setConfirm(true)
     }
 
     const {mutate} = useRsvpData (onSuccess)

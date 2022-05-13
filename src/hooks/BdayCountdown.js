@@ -15,7 +15,7 @@ export const BdayCountdown = () => {
         }
     }
 
-    const bDay = Date.parse(new Date(2022, 4, 23, 8,0, 0))
+    const bDay = Date.parse(new Date(2022, 4, 23, 20,0, 0))
     console.log(new Date(2022, 4, 23))
     return (
         <Countdown

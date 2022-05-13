@@ -1,11 +1,12 @@
 import Image from "mui-image";
 import {BdayCountdown} from "./hooks/BdayCountdown";
-import {Box, Container, Paper, Typography} from "@mui/material";
+import {Box, Container, Paper, Typography, useTheme} from "@mui/material";
 import {Text} from "./components/text/Text";
 import {Form} from "./components/Form";
 
 
 export const VersionTwo = () => {
+    const theme = useTheme();
     return (
         <>
 
@@ -33,12 +34,14 @@ export const VersionTwo = () => {
             >
                 <Box
                 sx={{position: 'relative',
-                top: '3.5ch'
+                top: '3.5ch',
+                // [theme.breakpoints.down("md")]: {top: '2.5ch'},
+                    [theme.breakpoints.down("sm")]: {top: '1ch'},
                 }}
                 >
                     <Typography
                         variant="h1"
-                        style={{
+                        sx={{
                             whiteSpace: 'pre-line',
                             fontFamily: 'Secular One',
                             fontSize: '6vw',
@@ -46,6 +49,7 @@ export const VersionTwo = () => {
                             display: 'flex',
                             justifyContent: 'center',
                             marginBottom: '1ch',
+                            [theme.breakpoints.down("sm")]: {fontSize: '5vw'},
                         }}>
                         ליידיס אנד ג'נטלמנס יקרים שלי!
                     </Typography>
@@ -78,14 +82,15 @@ export const VersionTwo = () => {
                     padding: '12ch',
                     display: 'flex',
                     justifyContent: 'center',
+                    [theme.breakpoints.down("sm")]: {paddingRight: 0, paddingLeft: 0},
+
                 }}>
 
                 <Box
                     sx={{
                         backgroundColor: '#8db6c5',
-                        maxWidth: '75ch',
+                        maxWidth: '100ch',
                         padding: '0.5ch',
-
                     }}>
 
                     <Box

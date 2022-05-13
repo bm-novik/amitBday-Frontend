@@ -1,6 +1,7 @@
-import {Button, FormControlLabel, Grid, Radio, RadioGroup, TextField, Typography} from "@mui/material";
+import {Button, FormControlLabel, Grid, Radio, RadioGroup, TextField, Typography, useTheme} from "@mui/material";
 import {useFormik} from "formik";
 import {styled} from "@mui/material/styles";
+import {useRsvpData} from "../hooks/useRSVPData";
 
 const whiteShade = ''
 
@@ -29,19 +30,37 @@ const MyTextField = styled(TextField)({
     },
 });
 
-export const Form = () => {
 
+
+
+
+
+export const Form = () => {
+    const theme = useTheme();
+    const onSuccess = () => {
+        formik.resetForm()
+    }
+
+    const {mutate} = useRsvpData (onSuccess)
 
     const initialValues = {
-        fullName: '',
-        numOfPpl: 'alone',
+        name: '',
+        plus_one: 'alone',
         song: '',
         comment: '',
-
+        guest_name: '',
     }
 
     const onSubmit = (values) => {
-        console.log(values)
+        const data = {
+            "name": formik.values.name,
+            "plus_one": formik.values.plus_one !== 'alone' ,
+            "song": formik.values.song,
+            "comment": formik.values.comment,
+            "guest_name": formik.values.guest_name,
+        }
+        mutate(data)
+
     }
 
 
@@ -61,7 +80,8 @@ export const Form = () => {
                             alignItems: 'center',
                             display: 'flex',
                             justifyContent: 'center',
-                            color: 'white'
+                            color: 'white',
+                            [theme.breakpoints.down("sm")]: {fontSize: '1.4ch'}
                         }}>
                         - יום שני, 23.5.22|בשעה 20:00 |במיאון דה מייק, נמל תל אביב -
                     </Typography>
@@ -102,9 +122,9 @@ export const Form = () => {
                 <Grid item xs={6}>
                     <MyTextField
                         fullWidth
-                        id="fullName"
-                        name="fullName"
-                        value={formik.values.fullName}
+                        id="name"
+                        name="name"
+                        value={formik.values.name}
                         onChange={formik.handleChange}
                         sx={{fontFamily: 'Secular One', width: '160%'}}
                     />
@@ -144,8 +164,8 @@ export const Form = () => {
                         aria-labelledby="demo-controlled-radio-buttons-group"
                         name="controlled-radio-buttons-group"
 
-                        value={formik.values.numOfPpl}
-                        onChange={(event) => formik.setFieldValue('numOfPpl', event.target.value)}
+                        value={formik.values.plus_one}
+                        onChange={(event) => formik.setFieldValue('plus_one', event.target.value)}
                         sx={{
                             '& .MuiTypography-root': {direction: 'rtl', color: 'white'},
                             '& .MuiButtonBase-root': {direction: 'rtl', color: 'white'},
@@ -159,7 +179,33 @@ export const Form = () => {
 
                 </Grid>
             </Grid>
+            {formik.values.plus_one === 'alone' ? null :
+                <Grid container
+                      sx={{marginBottom: '1ch'}}
+                >
+                    <Grid item item xs={2}>
+                        <Typography
+                            sx={{
+                                fontFamily: 'Secular One',
+                                alignContent: 'center',
+                                alignItems: 'center'
+                            }}>
+                            שם בן הזוג
+                        </Typography>
+                    </Grid>
 
+                    <Grid item xs={6}>
+                        <MyTextField
+                            fullWidth
+                            id="guest_name"
+                            name="guest_name"
+                            value={formik.values.guest_name}
+                            onChange={formik.handleChange}
+                            sx={{fontFamily: 'Secular One', width: '160%'}}
+                        />
+                    </Grid>
+                </Grid>
+            }
             <Grid container>
                 <Grid item xs={3}>
                     <Typography

@@ -1,9 +1,14 @@
-import {Button, FormControlLabel, Grid, Radio, RadioGroup, TextField, Typography, useTheme} from "@mui/material";
-import {useFormik} from "formik";
-import {styled} from "@mui/material/styles";
-import {useRsvpData} from "../hooks/useRSVPData";
+import { FormControlLabel, Grid, Radio, RadioGroup, TextField } from "@mui/material";
+import { useFormik } from "formik";
+import { styled } from "@mui/material/styles";
+import { useRsvpData } from "../../hooks/useRSVPData";
+import { MY_PINK } from "../../utils/config";
+import { StyledEventInfoTypography,
+    StyledConfirmTitleTypography,
+    StyledEventConfirmListItemTypography
+ } from "../typography/TypographyControl";
+import { FormSubmitButton } from "../button/ButtonControl";
 
-const whiteShade = ''
 
 const MyTextField = styled(TextField)({
     '& .MuiInputBase-input': {
@@ -25,18 +30,14 @@ const MyTextField = styled(TextField)({
             borderColor: 'white',
         },
         '&.Mui-focused fieldset': {
-            borderColor: '#ea098a',
+            borderColor: MY_PINK,
         },
     },
 });
 
 
 
-
-
-
-export const Form = ({setConfirm}) => {
-    const theme = useTheme()
+export const RsvpForm = ({setConfirm}) => {
 
     const onSuccess = () => {
         formik.resetForm()
@@ -62,7 +63,6 @@ export const Form = ({setConfirm}) => {
             "guest_name": formik.values.guest_name,
         }
         mutate(data)
-
     }
 
 
@@ -75,50 +75,27 @@ export const Form = ({setConfirm}) => {
         <Grid container component='form' autoComplete="off" onSubmit={formik.handleSubmit}>
             <Grid container>
                 <Grid item sx={{width: '100%'}} >
-                    <Typography
-                        sx={{
-                            fontFamily: 'Secular One',
-                            alignContent: 'center',
-                            alignItems: 'center',
-                            display: 'flex',
-                            justifyContent: 'center',
-                            color: 'white',
-                            [theme.breakpoints.down("sm")]: {fontSize: '1.4ch'}
-                        }}>
+                    <StyledEventInfoTypography>
                         - יום שני, 23.5.22|בשעה 20:00 |במיאון דה מייק, נמל תל אביב -
-                    </Typography>
+                    </StyledEventInfoTypography>
                 </Grid>
             </Grid>
 
             <Grid container>
                 <Grid item sx={{width: '100%'}} >
-                    <Typography
-                        sx={{
-                            fontFamily: 'Secular One',
-                            alignContent: 'center',
-                            alignItems: 'center',
-                            display: 'flex',
-                            justifyContent: 'center',
-                            color: 'white',
-                            fontSize: '5vw',
-                        }}>
+                    <StyledConfirmTitleTypography>
                          אישור הגעה
-                    </Typography>
+                    </StyledConfirmTitleTypography>
                 </Grid>
             </Grid>
 
             <Grid container
             sx={{marginBottom: '1ch'}}
             >
-                <Grid item item xs={2}>
-                    <Typography
-                        sx={{
-                            fontFamily: 'Secular One',
-                            alignContent: 'center',
-                            alignItems: 'center'
-                        }}>
+                <Grid item xs={2}>
+                    <StyledEventConfirmListItemTypography>
                         שם מלא
-                    </Typography>
+                    </StyledEventConfirmListItemTypography>
                 </Grid>
 
                 <Grid item xs={6}>
@@ -136,14 +113,9 @@ export const Form = ({setConfirm}) => {
 
             <Grid container>
                 <Grid item xs={2}>
-                    <Typography
-                        sx={{
-                            fontFamily: 'Secular One',
-                            alignContent: 'center',
-                            alignItems: 'center'
-                        }}>
+                    <StyledEventConfirmListItemTypography>
                         שיר שתבצע
-                    </Typography>
+                    </StyledEventConfirmListItemTypography>
                 </Grid>
 
                 <Grid item xs={6}>
@@ -171,8 +143,7 @@ export const Form = ({setConfirm}) => {
                         sx={{
                             '& .MuiTypography-root': {direction: 'rtl', color: 'white'},
                             '& .MuiButtonBase-root': {direction: 'rtl', color: 'white'},
-                            '& .MuiRadio-root.Mui-checked': {direction: 'rtl', color: '#ea098a'},
-
+                            '& .MuiRadio-root.Mui-checked': {direction: 'rtl', color: MY_PINK},
                         }}
                     >
                         <FormControlLabel sx={{marginRight: 0}} value="alone" control={<Radio/>} label="מגיע.ה לבד"/>
@@ -186,14 +157,9 @@ export const Form = ({setConfirm}) => {
                       sx={{marginBottom: '1ch'}}
                 >
                     <Grid item item xs={2}>
-                        <Typography
-                            sx={{
-                                fontFamily: 'Secular One',
-                                alignContent: 'center',
-                                alignItems: 'center'
-                            }}>
+                        <StyledEventConfirmListItemTypography>
                             שם בן הזוג
-                        </Typography>
+                        </StyledEventConfirmListItemTypography>
                     </Grid>
 
                     <Grid item xs={6}>
@@ -210,15 +176,9 @@ export const Form = ({setConfirm}) => {
             }
             <Grid container>
                 <Grid item xs={3}>
-                    <Typography
-
-                        sx={{
-                            fontFamily: 'Secular One',
-                            alignContent: 'center',
-                            alignItems: 'center'
-                        }}>
+                    <StyledEventConfirmListItemTypography>
                         הערות/שאלות/בקשות/מחמאות/אחר:
-                    </Typography>
+                    </StyledEventConfirmListItemTypography>
                 </Grid>
             </Grid>
 
@@ -236,20 +196,11 @@ export const Form = ({setConfirm}) => {
                     />
                 </Grid>
             </Grid>
-            <Button
+            <FormSubmitButton
                 type='submit'
-                sx={{
-                    fontFamily: 'Secular One',
-                    marginTop: '2ch',
-                    backgroundColor: '#231f20',
-                    color: 'white',
-                    width: '100%',
-                    fontSize: '3ch',
-                    ":hover": { backgroundColor: "white", color: '#231f20'}
-                }}
             >
                 אישור
-            </Button>
+            </FormSubmitButton>
         </Grid>
     )
 }

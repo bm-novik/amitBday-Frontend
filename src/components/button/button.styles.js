@@ -12,3 +12,18 @@ export const FormSubmitButton = styled(Button)(({theme}) => ({
     fontSize: '3ch',
     ":hover": { backgroundColor: "white", color: '#231f20'}
 }));
+
+export const ReviewDirectButton = styled(Button)(({theme}) => ({
+    fontFamily: 'Secular One',
+    backgroundColor: '#231f20',
+    color: 'white',
+    width: '100%',
+    fontSize: '3ch',
+    zIndex: 1,
+    borderRadius: 0,
+    borderTop: 'solid',
+    borderBottom: 'solid',
+    borderColor: '#fff',
+    boxShadow: 2,
+    ":hover": { backgroundColor: "white", color: '#231f20'}
+}));

@@ -1,5 +1,5 @@
-import {FormSubmitButton} from "./button.styles";
+import {FormSubmitButton, ReviewDirectButton} from "./button.styles";
 
 
-export {FormSubmitButton}
+export {FormSubmitButton, ReviewDirectButton}
 

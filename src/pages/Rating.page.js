@@ -3,16 +3,16 @@ import {StyledRatingListCard, StyledRatingMediaHeaderCard} from "../components/c
 import {StyledCardBox} from "../components/box/BoxControl";
 import {StyledCardMediaHeaderTypography} from "../components/typography/TypographyControl";
 import {Fragment, useEffect} from "react";
-import {useGetSongsListData} from "../hooks/useRSVPData";
+import {useGetSongsListData, useViewPermissionData} from "../hooks/useRSVPData";
 import {AlignItemsList} from "../components/list/RatingListItem";
-import {  useInView  } from 'react-intersection-observer'
+import {useInView} from 'react-intersection-observer'
 import Button from "@material-ui/core/Button";
 import {CircularProgress} from "@mui/material";
+import {ReviewDirectButton} from "../components/button/ButtonControl";
 
 
 export const RatingPage = () => {
-
-    const { ref, inView } = useInView()
+    const {ref, inView} = useInView()
 
     useEffect(() => {
         if (inView) fetchNextPage()
@@ -20,8 +20,10 @@ export const RatingPage = () => {
 
     const getNextPageParam = (_lastPage, pages) => pages[(pages.length) - 1].data.next ?? undefined
 
+    const {data: permissionData} = useViewPermissionData()
     const {data, fetchNextPage, hasNextPage, isFetchingNextPage, isLoading}
         = useGetSongsListData(getNextPageParam)
+
     return (
         <>
             <StyledRatingListCard
@@ -34,6 +36,7 @@ export const RatingPage = () => {
                             'https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80'
                         }
                     />
+                    {permissionData?.data[0]?.permission && <ReviewDirectButton> לתוצאות </ReviewDirectButton>}
                     <Box
                         style={{
                             paddingLeft: '2ch',

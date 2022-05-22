@@ -41,6 +41,15 @@ const AddRatingRequest = data => {
     return request({url: '/rating/', method: 'post', data: data})
 }
 
+const ChangePermissionRequest = data => {
+    return request({url: '/permission/1/', method: 'put', data: data})
+}
+
+const FetchPermissionRequest = () => {
+    return request({url: '/permission'})
+}
+
+
 // ###################################################################################################### \\
 export const useRsvpData = (onSuccess) => {
     return (
@@ -55,9 +64,7 @@ export const useRsvpData = (onSuccess) => {
 export const useRsvpGetData = () => {
     return (
         useQuery('useRsvpGet', FetchRsvpRequest,
-            {
-
-            }
+            {}
         )
     )
 }
@@ -65,9 +72,7 @@ export const useRsvpGetData = () => {
 export const useCalcData = () => {
     return (
         useQuery('useCalc', FetchCalcRequest,
-            {
-
-            }
+            {}
         )
     )
 }
@@ -122,8 +127,8 @@ export const useAddSongData = (onSuccess) => {
 
 export const useGetSongsListData = (getNextPageParam) => {
     return (
-        useInfiniteQuery(['useGetSongsList'], ({ pageParam = `${BASE_URL}/song/`}) =>
-        FetchSongsListRequest(pageParam),
+        useInfiniteQuery(['useGetSongsList'], ({pageParam = `${BASE_URL}/song/`}) =>
+                FetchSongsListRequest(pageParam),
             {
                 keepPreviousData: true,
                 getNextPageParam
@@ -138,6 +143,21 @@ export const useAddRatingData = (onSettled) => {
             {
                 onSettled,
             }
+        )
+    )
+}
+export const useViewPermissionData = () => {
+    return (
+        useQuery('useViewPermission', FetchPermissionRequest,
+            {}
+        )
+    )
+}
+
+export const useChangePermissionData = () => {
+    return (
+        useMutation('useViewPermission', ChangePermissionRequest,
+            {}
         )
     )
 }

@@ -27,3 +27,13 @@ export const ReviewDirectButton = styled(Button)(({theme}) => ({
     boxShadow: 2,
     ":hover": { backgroundColor: "white", color: '#231f20'}
 }));
+
+export const ScoreDirectButton = styled(FormSubmitButton)(({theme}) => ({
+    marginTop: 0,
+    marginBottom: '1.25ch',
+    borderTopLeftRadius: 0,
+    borderTopRightRadius: 0,
+    borderTop: 'solid',
+    borderColor: '#fff',
+    borderTopWidth: 'medium'
+}));

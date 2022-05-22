@@ -9,10 +9,12 @@ import {useInView} from 'react-intersection-observer'
 import Button from "@material-ui/core/Button";
 import {CircularProgress} from "@mui/material";
 import {ReviewDirectButton} from "../components/button/ButtonControl";
+import {useNavigate} from "react-router-dom";
 
 
 export const RatingPage = () => {
     const {ref, inView} = useInView()
+    const navigate = useNavigate()
 
     useEffect(() => {
         if (inView) fetchNextPage()
@@ -38,7 +40,12 @@ export const RatingPage = () => {
                             'https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80'
                         }
                     />
-                    {permissionData?.data[0]?.permission && <ReviewDirectButton> לתוצאות </ReviewDirectButton>}
+                    {permissionData?.data[0]?.permission &&
+                        <ReviewDirectButton
+                            onClick={() => navigate('/score')}
+                        >
+                            לתוצאות
+                    </ReviewDirectButton>}
                     <Box
                         style={{
                             paddingLeft: '2ch',

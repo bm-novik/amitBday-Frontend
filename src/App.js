@@ -16,9 +16,10 @@ import {SpeedDialNavigator} from "./components/speedDial/SpeedDial";
 function App() {
     const [auth, setAuth] = useRecoilState(authSelector)
     const theme = useTheme();
+
     return (
         <ThemeProvider theme={theme}>
-            <Box sx={{}}>
+            <Box>
 
                 <Routes>
                     <Route path="/" element={<VersionTwo/>}/>

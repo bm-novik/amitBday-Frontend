@@ -87,6 +87,7 @@ export const StyledAvatarInfoTypography = styled(Typography)(({theme}) => ({
     mt: '1ch',
     fontSize: '1ch',
     fontWeight: 600,
+    marginTop: '1ch',
 }));
 
 

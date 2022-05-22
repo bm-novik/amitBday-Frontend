@@ -10,7 +10,7 @@ import LoginIcon from '@mui/icons-material/Login';
 import {useRecoilValue,} from "recoil";
 import {authSelector} from "../../recoil/atomStore";
 import QuestionMarkSharpIcon from '@mui/icons-material/QuestionMarkSharp';
-
+import GradeOutlinedIcon from '@mui/icons-material/GradeOutlined';
 
 export const SpeedDialNavigator = () => {
     const navigate = useNavigate()
@@ -21,6 +21,7 @@ export const SpeedDialNavigator = () => {
         { icon: <LoginIcon />, name: 'login' },
         { icon: <TableRowsIcon />, name: 'rsvp' },
         { icon: <SportsScoreIcon />, name: 'score' },
+        { icon: <GradeOutlinedIcon />, name: 'rating' },
         { icon: <QuestionMarkSharpIcon />, name: 'authState' },
     ];
 
@@ -28,7 +29,7 @@ export const SpeedDialNavigator = () => {
         <Box sx={{width:'100%', transform: 'translateZ(0px)', flexGrow: 1 }}>
             <SpeedDial
                 ariaLabel="SpeedDial navigation"
-                sx={{ position: 'absolute', bottom: 16, left: 16 }}
+                sx={{ position: 'absolute', bottom: '16px', left: 16, flexDirection: 'column-reverse' }}
                 icon={<SpeedDialIcon />}
             >
                 {actions.map((action) => (

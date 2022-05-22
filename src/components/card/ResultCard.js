@@ -1,5 +1,4 @@
 import CardContent from '@mui/material/CardContent';
-import {Grid} from "@mui/material";
 import {StyledScoreAvatar, StyledScoreSmallAvatar} from "../avatar/AvatarControl";
 import {
     StyledAvatarInfoTypography,
@@ -23,7 +22,7 @@ export const ResultCard = ({result, index}) => {
             }
         >
             <CardContent
-                sx={{width: '35ch'}}
+                sx={{width: '25ch'}}
             >
                 <StyledResultSingerNameTypography gutterBottom>
                     {result?.singer}
@@ -40,17 +39,14 @@ export const ResultCard = ({result, index}) => {
                     container
                     spacing={2}
                 >
-                    <Grid item
-                          sx={{
-
-                    }}>
+                    <StyledAvatarWithTextGridItem item>
                         <StyledScoreSmallAvatar sx={{borderLeft: 'groove'}}>
                             {result?.judges_score}
                         </StyledScoreSmallAvatar>
                         <StyledAvatarInfoTypography>
                             דירוג השופטים
                         </StyledAvatarInfoTypography>
-                    </Grid>
+                    </StyledAvatarWithTextGridItem>
 
                     <StyledAvatarWithTextGridItem item>
                         <StyledScoreAvatar>

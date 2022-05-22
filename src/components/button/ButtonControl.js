@@ -1,5 +1,6 @@
-import {FormSubmitButton, ReviewDirectButton} from "./button.styles";
+import {FormSubmitButton, ReviewDirectButton, ScoreDirectButton} from "./button.styles";
 
 
-export {FormSubmitButton, ReviewDirectButton}
+export {FormSubmitButton, ReviewDirectButton, ScoreDirectButton}
+
 

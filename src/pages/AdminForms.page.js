@@ -6,18 +6,23 @@ import {useState} from "react";
 
 
 export const AdminFormsPage = () => {
-    const {data: permissionData} = useViewPermissionData()
+    const [checked, setChecked] = useState(false)
+
+    const onSuccess = (data) => {
+        setChecked(permissionData?.data[0]?.permission)
+    }
+
+    const {data: permissionData} = useViewPermissionData(onSuccess)
     const {mutate} = useChangePermissionData()
 
-    const [checked, setChecked] = useState(permissionData?.data?.permission || false)
+
 
     const handleChange = () => {
-        console.log('in handle')
         setChecked(!checked)
         mutate({permission: !checked})
 
     };
-    console.log(permissionData?.data[0]?.permission)
+
     return (
         <>
             <Image src={`${'narrow.jpeg'}?w=293&h=293&fit=crop&auto=format`}/>

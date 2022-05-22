@@ -24,7 +24,7 @@ function App() {
                     <Route path="/" element={<VersionTwo/>}/>
                     <Route path="login" element={<Login/>}/>
 
-                    <Route path="Admin" element={
+                    <Route path="admin" element={
                         <AuthenticationCheck superUserOnly={true}>
                             <AdminFormsPage/>
                         </ AuthenticationCheck>}/>

@@ -20,6 +20,8 @@ export const RatingPage = () => {
 
     const getNextPageParam = (_lastPage, pages) => pages[(pages.length) - 1].data.next ?? undefined
 
+
+
     const {data: permissionData} = useViewPermissionData()
     const {data, fetchNextPage, hasNextPage, isFetchingNextPage, isLoading}
         = useGetSongsListData(getNextPageParam)

@@ -146,10 +146,14 @@ export const useAddRatingData = (onSettled) => {
         )
     )
 }
-export const useViewPermissionData = () => {
+export const useViewPermissionData = (onSuccess) => {
     return (
         useQuery('useViewPermission', FetchPermissionRequest,
-            {}
+            {
+                refetchOnWindowFocus: false,
+                refetchOnReconnect: false,
+                onSuccess,
+            }
         )
     )
 }

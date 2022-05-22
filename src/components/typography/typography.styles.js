@@ -81,3 +81,12 @@ export const StyledResultSongNameTypography = styled(StyledResultHeaderTypograph
     fontWeight: 300,
     color: '#000000',
 }));
+
+export const StyledAvatarInfoTypography = styled(Typography)(({theme}) => ({
+    fontFamily: 'Assistant',
+    mt: '1ch',
+    fontSize: '1ch',
+    fontWeight: 600,
+}));
+
+

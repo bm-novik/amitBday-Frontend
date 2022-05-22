@@ -20,10 +20,22 @@ export const Login = () => {
     }
 
     return (
-        <StyledFormBox>
+        <StyledFormBox >
 
-            <Box component="form" onSubmit={handleSubmit} sx={{mt: 1, direction: 'ltr'}}>
+            <Box
+                component="form"
+                onSubmit={handleSubmit}
+                sx={{
+                    mt: 1,
+                    direction: 'ltr',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'stretch',
+                    alignContent: 'stretch',
+                    width: '100%',
+                }}>
                 <TextField
+                    sx={{backgroundColor: '#fff'}}
                     margin="normal"
                     fullWidth
                     value={password}

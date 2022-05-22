@@ -2,11 +2,12 @@ import CardContent from '@mui/material/CardContent';
 import {Grid} from "@mui/material";
 import {StyledScoreAvatar, StyledScoreSmallAvatar} from "../avatar/AvatarControl";
 import {
+    StyledAvatarInfoTypography,
     StyledResultSingerNameTypography,
     StyledResultSongNameTypography
 } from "../typography/TypographyControl";
 import {StyledResultCardDivider} from "../divider/DividerControl";
-import {StyledRowAvatarGridContainer} from "../grid/GridControl";
+import {StyledAvatarWithTextGridItem, StyledRowAvatarGridContainer} from "../grid/GridControl";
 import {StyledResultCard} from "./CardControl";
 
 
@@ -39,23 +40,40 @@ export const ResultCard = ({result, index}) => {
                     container
                     spacing={2}
                 >
-                    <Grid item>
+                    <Grid item
+                          sx={{
+
+                    }}>
                         <StyledScoreSmallAvatar sx={{borderLeft: 'groove'}}>
                             {result?.judges_score}
                         </StyledScoreSmallAvatar>
+                        <StyledAvatarInfoTypography>
+                            דירוג השופטים
+                        </StyledAvatarInfoTypography>
                     </Grid>
 
-                    <Grid item>
+                    <StyledAvatarWithTextGridItem item>
                         <StyledScoreAvatar>
                             {result?.overall_score}
                         </StyledScoreAvatar>
-                    </Grid>
+                        <StyledAvatarInfoTypography>
+                            תוצאה סופית
+                        </StyledAvatarInfoTypography>
+                    </StyledAvatarWithTextGridItem>
 
-                    <Grid item>
+                    <StyledAvatarWithTextGridItem item
+                          sx={{
+                              display: 'flex',
+                              flexDirection: 'column',
+                              alignItems: 'center',
+                          }}>
                         <StyledScoreSmallAvatar sx={{borderRight: 'groove'}}>
                             {result?.audience_score}
                         </StyledScoreSmallAvatar>
-                    </Grid>
+                        <StyledAvatarInfoTypography>
+                            דירוג הצופים
+                        </StyledAvatarInfoTypography>
+                    </StyledAvatarWithTextGridItem>
                 </StyledRowAvatarGridContainer>
             </CardContent>
         </StyledResultCard>

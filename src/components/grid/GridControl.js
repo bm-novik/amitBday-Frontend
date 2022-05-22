@@ -1,3 +1,4 @@
-import {StyledRowAvatarGridContainer} from "./grid.styles";
+import {StyledAvatarWithTextGridItem, StyledRowAvatarGridContainer} from "./grid.styles";
 
-export {StyledRowAvatarGridContainer}
+export {StyledRowAvatarGridContainer, StyledAvatarWithTextGridItem}
+

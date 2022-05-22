@@ -7,18 +7,12 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import {useRsvpGetData} from "../hooks/useRSVPData";
 import {
-    Alert,
-    Box,
-    Button,
     CircularProgress,
     Divider,
-    Snackbar,
     Stack,
-    TextField,
     Typography,
     useTheme
 } from "@mui/material";
-import {useState} from "react";
 
 const columns = [
     {
@@ -59,32 +53,8 @@ const columns = [
 
 
 export const RsvpPage = () => {
-    const [authentication, setAuthenticayion] = useState(false)
-    const [code, setCode] = useState('')
-    const [openAlert, setOpenAlert] = useState(false);
-
     const {isSuccess, isLoading, data} = useRsvpGetData()
     const theme = useTheme()
-
-    // const handleClick = () => {
-    //     console.log(code)
-    //     if (code === 'kingAmit') {
-    //         setAuthenticayion(true)
-    //         refetch()
-    //     } else {
-    //         setOpenAlert(true)
-    //         setCode('')
-    //     }
-    // }
-    //
-    // const handleCloseAlert = (event, reason) => {
-    //     if (reason === 'clickaway') {
-    //         return;
-    //     }
-    //
-    //     setOpenAlert(false);
-    // };
-
 
     return (
         <>
@@ -100,37 +70,6 @@ export const RsvpPage = () => {
                 AMITMULEDET RSVP LIST
             </Typography>
             <Divider/>
-
-            {/*{!authentication &&*/}
-            {/*    <Box*/}
-            {/*    sx={{*/}
-            {/*        display: 'flex',*/}
-            {/*        flexDirection: 'column',*/}
-            {/*        justifyContent: 'center',*/}
-            {/*        alignItems: 'stretch',*/}
-            {/*        width: '40%',*/}
-            {/*        margin: 'auto'*/}
-
-            {/*    }}>*/}
-            {/*    <TextField*/}
-            {/*        id="standard-password-input"*/}
-            {/*        label="Password"*/}
-            {/*        type="password"*/}
-            {/*        autoComplete="current-password"*/}
-            {/*        variant="standard"*/}
-            {/*        value={code}*/}
-            {/*        onChange={(e) => setCode(e.target.value)}*/}
-            {/*        onKeyUp={(e) => e.key === 'Enter' ? handleClick() : null}*/}
-            {/*    />*/}
-            {/*        <Button style={{marginTop: '2ch'}} onClick={handleClick} variant="outlined">Submit</Button>*/}
-            {/*        <Snackbar open={openAlert} autoHideDuration={6000} onClose={handleCloseAlert}>*/}
-            {/*            <Alert onClose={handleCloseAlert} severity="error" sx={{ width: '100%' }}>*/}
-            {/*                Wrong Password try again*/}
-            {/*            </Alert>*/}
-            {/*        </Snackbar>*/}
-            {/*    </Box>*/}
-            {/*}*/}
-
             {isLoading &&
                 <Stack sx={{color: 'grey.500'}} spacing={2} direction="row">
                     <CircularProgress color="secondary"/>
@@ -142,7 +81,6 @@ export const RsvpPage = () => {
                 <Paper sx={{width: '100%', overflow: 'hidden'}}>
                     <TableContainer
                         sx={{
-                            // maxHeight: 440
                             height: "100%"
                         }}>
                         <Table stickyHeader aria-label="sticky table">

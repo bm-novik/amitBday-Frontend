@@ -74,5 +74,9 @@ export const StyledFormBox = styled(Box)(({theme}) => (
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
+        width: '80%',
+
+        [theme.breakpoints.down(595)]: {width: '100%' },
+
     }
 ));

@@ -5,7 +5,7 @@ import {
     StyledTextHeaderTypography,
     StyledTextSecondaryHeaderTypography,
     StyledCardMediaHeaderTypography,
-    StyledResultSingerNameTypography, StyledResultSongNameTypography
+    StyledResultSingerNameTypography, StyledResultSongNameTypography, StyledAvatarInfoTypography
 } from "./typography.styles";
 
 export {
@@ -16,6 +16,8 @@ export {
     StyledTextSecondaryHeaderTypography,
     StyledCardMediaHeaderTypography,
     StyledResultSingerNameTypography,
-    StyledResultSongNameTypography
+    StyledResultSongNameTypography,
+    StyledAvatarInfoTypography
 }
+
 

@@ -9,3 +9,10 @@ export const StyledRowAvatarGridContainer = styled(Grid)(({theme}) => ({
     }
 ));
 
+export const StyledAvatarWithTextGridItem = styled(Grid)(({theme}) => ({
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+    }
+));
+

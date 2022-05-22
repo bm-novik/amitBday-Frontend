@@ -2,7 +2,10 @@ import {
     StyledEventInfoTypography,
     StyledConfirmTitleTypography,
     StyledEventConfirmListItemTypography,
-    StyledTextHeaderTypography, StyledTextSecondaryHeaderTypography, StyledCardMediaHeaderTypography
+    StyledTextHeaderTypography,
+    StyledTextSecondaryHeaderTypography,
+    StyledCardMediaHeaderTypography,
+    StyledResultSingerNameTypography, StyledResultSongNameTypography
 } from "./typography.styles";
 
 export {
@@ -11,6 +14,8 @@ export {
     StyledEventConfirmListItemTypography,
     StyledTextHeaderTypography,
     StyledTextSecondaryHeaderTypography,
-    StyledCardMediaHeaderTypography
+    StyledCardMediaHeaderTypography,
+    StyledResultSingerNameTypography,
+    StyledResultSongNameTypography
 }
 

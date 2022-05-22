@@ -1,4 +1,5 @@
-import {StyledRatingListCard, StyledRatingMediaHeaderCard} from "./card.styles";
+import {StyledRatingListCard, StyledRatingMediaHeaderCard, StyledResultCard} from "./card.styles";
+import {ResultCard} from "./ResultCard";
 
-export {StyledRatingListCard, StyledRatingMediaHeaderCard}
+export {StyledRatingListCard, StyledRatingMediaHeaderCard, StyledResultCard, ResultCard}
 

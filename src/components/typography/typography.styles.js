@@ -61,3 +61,23 @@ export const StyledCardMediaHeaderTypography = styled(Typography)(({theme}) => (
     direction: 'ltr',
     zIndex: 1,
 }));
+
+const StyledResultHeaderTypography = styled(Typography)(({theme}) => ({
+    display: 'flex',
+    justifyContent: 'center',
+    letterSpacing: '0.25ch',
+    fontFamily: 'Assistant',
+}));
+
+
+export const StyledResultSingerNameTypography = styled(StyledResultHeaderTypography)(({theme}) => ({
+    fontSize: '1.75ch',
+    fontWeight: 600,
+    color: '#a9a5a5',
+}));
+
+export const StyledResultSongNameTypography = styled(StyledResultHeaderTypography)(({theme}) => ({
+    fontSize: '4ch',
+    fontWeight: 300,
+    color: '#000000',
+}));

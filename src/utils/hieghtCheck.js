@@ -1,0 +1,17 @@
+// import {useCallback, useState} from "react";
+//
+// function useClientRect() {
+//     const [rect, setRect] = useState(null);
+//     const ref = useCallback(node => {
+//         if (node !== null) {
+//             setRect(node.getBoundingClientRect());
+//         }
+//     }, []);
+//     return [rect, ref];
+// }
+//
+// const [rect, ref] = useClientRect()
+//
+// {rect !== null && (
+//     <h2 style={{color: "white"}}>The above Paper is {Math.round(rect.height)}px tall</h2>
+// )}

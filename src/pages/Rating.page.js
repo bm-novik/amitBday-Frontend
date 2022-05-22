@@ -52,7 +52,6 @@ export const RatingPage = () => {
                         <Fragment key={i}>
                             {group?.data?.results.map(song =>
                                 <AlignItemsList key={song.id} song={song}/>
-
                             )}
                         </Fragment>
                     )

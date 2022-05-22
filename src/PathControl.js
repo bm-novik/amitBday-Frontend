@@ -4,9 +4,11 @@ import {authSelector} from "./recoil/atomStore";
 import {useCheckTokenData} from "./hooks/useRSVPData";
 
 
-export const AuthenticationCheck = ({ children }) => {
+export const AuthenticationCheck = ({ children, superUserOnly=false }) => {
     const [auth, setAuth] = useRecoilState(authSelector)
     const location = useLocation()
+    const restricted = superUserOnly && !auth.superUser
+
 
     const onSuccess = ({data}) => {
         setAuth(data)
@@ -15,7 +17,7 @@ export const AuthenticationCheck = ({ children }) => {
 
     const onError = () => {
         window.localStorage.removeItem('token')
-        return (<Navigate to='/accounts/login' state={{ path: location.pathname }} />)
+        return (<Navigate to='/' state={{ path: location.pathname }} />)
     }
 
     const {mutate, isSuccess, isError} = useCheckTokenData(onSuccess, onError)
@@ -23,6 +25,7 @@ export const AuthenticationCheck = ({ children }) => {
 
 
     {/* Main */}
+    if (restricted) return <Navigate to='/' state={{path: location.pathname}}/>
     if (!auth.token) {
         const localStorageToken = window.localStorage.getItem('token') || null
 
@@ -36,6 +39,5 @@ export const AuthenticationCheck = ({ children }) => {
         return children
     }
     return (isSuccess && children) || (isError && (<Navigate to='/' state={{ path: location.pathname }} />))
-
 }
 

@@ -26,7 +26,7 @@ const FetchRsvpRequest = () => {
 }
 
 const FetchCalcRequest = () => {
-    return Client({url: '/rating/rating_calc'})
+    return request({url: '/rating/rating_calc'})
 }
 
 const FetchSongsListRequest = (pageParam) => {

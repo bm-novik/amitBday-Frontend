@@ -46,3 +46,12 @@ export const StyledRatingMediaHeaderCard = styled(CardMedia)(({theme}) => (
     }
 ));
 
+export const StyledResultCard = styled(Card)(({theme}) => (
+    {
+        minWidth: 275,
+        display: 'flex',
+        justifyContent: 'center',
+        backgroundColor: '#fafafa',
+        marginBottom: '1.5ch'
+    }
+));

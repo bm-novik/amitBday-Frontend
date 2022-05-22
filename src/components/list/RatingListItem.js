@@ -22,7 +22,7 @@ const avatarColor = {
     7: green['A200'],
     8: lightGreen['A200'],
     10: green['A400'],
-    12: yellow['A400']
+    12: '#ffd700'
 }
 
 export const AlignItemsList = ({song}) => {

@@ -56,7 +56,7 @@ export const StyledCardBox = styled(Box)(({theme}) => (
             position: 'absolute',
             display: 'block',
             width: '100%',
-            height: '100%',
+            height: '90%',
             background: 'linear-gradient(to top,  hsl(205deg 22% 85%), hsl(205deg 24% 63%), hwb(0deg 100% 0%), hsl(205deg 22% 85%))',
             [theme.breakpoints.up(1375)]: {top: "420px", },
             [theme.breakpoints.down(1375)]: {top: "420px", },

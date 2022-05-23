@@ -12,6 +12,7 @@ import {Calculation} from "./pages/Calculation.page";
 import {useRecoilState} from "recoil";
 import {authSelector} from "./recoil/atomStore";
 import {SpeedDialNavigator} from "./components/speedDial/SpeedDial";
+import {Test} from "./Data";
 
 function App() {
     const [auth, setAuth] = useRecoilState(authSelector)
@@ -22,6 +23,7 @@ function App() {
             <Box>
 
                 <Routes>
+                    <Route path="test" element={<Test/>}/>
                     <Route path="/" element={<VersionTwo/>}/>
                     <Route path="login" element={<Login/>}/>
 

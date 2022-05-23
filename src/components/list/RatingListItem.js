@@ -75,6 +75,7 @@ export const AlignItemsList = ({song}) => {
                             display: 'flex',
                             alignItems: 'flex-start',
                             flexDirection: 'column',
+                            textAlign: 'start',
                         }}
                         primary={song.song}
                         secondary={

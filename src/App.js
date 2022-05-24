@@ -22,9 +22,7 @@ function App() {
             <Box>
 
                 <Routes>
-                    <Route path="/" element={<AuthenticationCheck>
-                        <VersionTwo/>
-                    </ AuthenticationCheck>}/>}/>
+                    <Route path="/" element={<VersionTwo/>}/>
                     <Route path="login" element={<Login/>}/>
 
                     <Route path="admin" element={
